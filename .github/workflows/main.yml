@@ -13,12 +13,6 @@ jobs:
     - name: Checkout the repository
       uses: actions/checkout@v2
 
-    - name: Build the project
-      run: |
-        cd survis-master/src
-        npm install
-        npm run build  # 如果有构建步骤的话
-
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
