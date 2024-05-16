@@ -13,8 +13,19 @@ jobs:
     - name: Checkout the repository
       uses: actions/checkout@v2
 
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: |
+        cd survis-master/src
+        npm install
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.ACTIONS_PAT }}
+        publish_branch: gh-pages
         publish_dir: ./survis-master/src  # 替换为要部署的目录
